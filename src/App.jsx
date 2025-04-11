@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -9,12 +10,21 @@ axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("/me")
+      .then((res) => setUser(res.data))
+      .catch(() => setUser(null));
+  }, []);
+
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <SignupPage />
       <LoginPage />
-      <LogoutLink />
+      <LogoutLink setUser={setUser} />
       <Footer />
     </div>
   );
