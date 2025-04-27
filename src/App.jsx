@@ -5,6 +5,7 @@ import { Footer } from "./Footer";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { LogoutLink } from "./LogoutLink";
+import { NotesPage } from "./NotesPage";
 
 axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
@@ -22,9 +23,20 @@ function App() {
   return (
     <div>
       <Header user={user} />
-      <SignupPage />
-      <LoginPage />
-      <LogoutLink setUser={setUser} />
+      {user ? (
+        // Logged in view: showing NotesPage (with Signup/Login hidden)
+        <>
+          <LogoutLink setUser={setUser} />
+          <NotesPage />
+        </>
+      ) : (
+        // Logged-out view: show signup and login forms
+        <>
+          <SignupPage />
+          <LoginPage />
+        </>
+      )}
+
       <Footer />
     </div>
   );

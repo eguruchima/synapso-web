@@ -1,4 +1,4 @@
-````markdown
+`````markdown
 # Synapso Web (React + Vite)
 
 The **Synapso Web** app is the React-based frontend for the Synapso note-taking and AI assistant platform. It communicates with the [Synapso API](../synapso-api) to authenticate users, manage notes, and eventually integrate advanced features like voice note recording and AI summaries.
@@ -54,16 +54,17 @@ It’s designed as a single-page application (SPA) with React Router for navigat
 ## Requirements
 
 - **Node.js**: 14+ (preferably 16+)
-- **npm** or **yarn**: for installing dependencies
+- **npm** for installing dependencies
 - A running instance of the [Synapso API](../synapso-api) on `localhost:3000` (or your chosen port)
 
 ---
 
-## Installation & Setup
+<!-- ## Installation & Setup
 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-username/synapso-web.git
    cd synapso-web
    ```
-````
+```` -->
+`````
