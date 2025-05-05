@@ -1,18 +1,12 @@
 import axios from "axios";
 
 export function LogoutLink({ setUser }) {
-  const handleClick = (event) => {
-    event.preventDefault();
-    axios.delete("/sessions.json").then((response) => {
-      console.log(response);
-      localStorage.removeItem("email");
-      setUser(null);
-    });
+  const handleLogout = () => {
+    axios
+      .delete("/sessions.json")
+      .then(() => setUser(null))
+      .catch((e) => console.error(e));
   };
 
-  return (
-    <a href="#" onClick={handleClick}>
-      Logout
-    </a>
-  );
+  return <button onClick={handleLogout}>Logout</button>;
 }
